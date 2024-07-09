@@ -11,10 +11,15 @@ def load_data(file):
     else:
         return pd.read_excel(file)
 
-# App title
-st.title("Exploratory Data Analysis App")
+# App title and description
+st.title("Exploratory Data Analysis (EDA) App")
+st.markdown("""
+This app performs Exploratory Data Analysis (EDA) on your uploaded dataset. EDA is an approach to analyze datasets to summarize their main characteristics, often using statistical graphics and other data visualization methods.
+""")
+st.markdown("---")
 
 # Upload file section
+st.sidebar.title("App by Kirthan Iyanagar")
 uploaded_file = st.file_uploader("Upload your Excel or CSV file", type=["csv", "xlsx"])
 
 if uploaded_file is not None:
@@ -32,6 +37,13 @@ if uploaded_file is not None:
     # Display data types
     st.subheader("Data Types")
     st.write(data.dtypes)
+
+    # Check for missing values
+    st.subheader("Missing Values")
+    st.write(data.isnull().sum())
+
+    # Drop rows with missing values for correlation calculation
+    data.dropna(inplace=True)
 
     # Correlation heatmap
     st.subheader("Correlation Heatmap")
