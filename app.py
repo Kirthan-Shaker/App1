@@ -32,8 +32,11 @@ def app():
   """
   st.sidebar.markdown(app_description, unsafe_allow_html=True)  # Display in sidebar
 
-  # File upload section (moved to sidebar for better layout)
-  uploaded_file = st.sidebar.file_uploader("Choose a CSV or Excel file", type=["csv", "xlsx"])
+  # App heading with large font size
+  st.markdown("<h1 style='text-align: center; font-size: 40px;'>Exploratory Data Analysis</h1>", unsafe_allow_html=True)
+
+  # File upload section (centered below heading)
+  uploaded_file = st.container().file_uploader("Choose a CSV or Excel file", type=["csv", "xlsx"])
 
   if uploaded_file is not None:
     # Read the uploaded file
@@ -41,9 +44,6 @@ def app():
       df = pd.read_excel(uploaded_file)
     else:
       df = pd.read_csv(uploaded_file)
-
-    # App heading with large font size
-    st.markdown("<h1 style='text-align: center; font-size: 40px;'>Exploratory Data Analysis</h1>", unsafe_allow_html=True)
 
     # Data overview section
     st.write("### Data Overview")
