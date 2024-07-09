@@ -7,17 +7,24 @@ import numpy as np
 def app():
   """ Exploratory Data Analysis App """
 
-  # Define app title and description (displayed on top left)
+  # Define app title, description, and "About Us" content
   st.set_page_config(
       page_title="Exploratory Data Analysis (EDA) App",
       page_icon="",  # Optional icon (displayed on browser tab)
       layout="wide"  # Adjust layout for wider content area
   )
 
-  # Big title with markdown formatting
-  st.markdown("<h2 style='text-align: center; font-size: 30px;'>About the App and How to Use This</h2>", unsafe_allow_html=True)
+  # About Us section (displayed on top left)
+  about_us_text = """
+      **About Us**
 
-  # App description text
+      This Exploratory Data Analysis (EDA) app is a tool designed to help you gain insights from your CSV or Excel data. 
+
+      Developed by Kirthan Iyanagar, this app provides a user-friendly interface to explore your data through various functionalities.
+  """
+  st.sidebar.markdown(about_us_text, unsafe_allow_html=True)
+
+  # App description text (displayed below About Us)
   app_description = """
       **Exploratory Data Analysis (EDA)** is a crucial step in data science that involves understanding the structure, characteristics, and relationships within your data. It helps identify patterns, trends, and potential issues before diving into model building.
 
@@ -35,7 +42,7 @@ def app():
       3. Select a column to analyze its distribution or value counts.
       4. Use the displayed visualizations to gain insights into your data.
   """
-  st.sidebar.markdown(app_description, unsafe_allow_html=True)  # Display in sidebar
+  st.sidebar.markdown(app_description, unsafe_allow_html=True)
 
   # App heading with large font size
   st.markdown("<h1 style='text-align: center; font-size: 40px;'>Exploratory Data Analysis</h1>", unsafe_allow_html=True)
@@ -88,7 +95,7 @@ def app():
     st.sidebar.markdown(analysis_table, unsafe_allow_html=True)
 
   # Add signature in sidebar
-  st.sidebar.markdown("App by Kirthan Iyanagar", unsafe_allow_html=True)
+  st.sidebar.markdown("Developed by Kirthan Iyanagar", unsafe_allow_html=True)
 
 if __name__ == "__main__":
   app()
