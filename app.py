@@ -81,5 +81,4 @@ st.sidebar.markdown("""
 - **Boxplot**: Visualizing the distribution of selected columns using boxplots.
 """)
 
-else:
     st.write("Please upload an Excel or CSV file to start the analysis.")
