@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 def app():
-  "" Exploratory Data Analysis App ""
+  """ Exploratory Data Analysis App """
 
   # Define app title and description (displayed on top left)
   st.set_page_config(
