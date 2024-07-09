@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import seaborn as sns
+import matplotlib as mp
 
 def app():
   """ Exploratory Data Analysis App """
@@ -12,8 +14,11 @@ def app():
       layout="wide"  # Adjust layout for wider content area
   )
 
+  # Big title with markdown formatting
+  st.markdown("<h2 style='text-align: center; font-size: 30px;'>About the App and How to Use This</h2>", unsafe_allow_html=True)
+
   # App description text
-  app_description = """*About this App*
+  app_description = """
       **Exploratory Data Analysis (EDA)** is a crucial step in data science that involves understanding the structure, characteristics, and relationships within your data. It helps identify patterns, trends, and potential issues before diving into model building.
 
       **Use cases:**
