@@ -69,5 +69,18 @@ if uploaded_file is not None:
         sns.boxplot(y=data[selected_boxplot_column])
         st.pyplot(plt)
 
+# Content table for analysis capabilities
+st.sidebar.markdown("### Analysis Capabilities")
+st.sidebar.markdown("""
+- **Dataset Overview**: Displaying the first few rows of the dataset.
+- **Summary Statistics**: Providing descriptive statistics like mean, median, min, max, etc.
+- **Data Types**: Showing the data types of columns in the dataset.
+- **Missing Values**: Checking and displaying the count of missing values.
+- **Correlation Heatmap**: Visualizing correlations between numeric columns.
+- **Pairplot**: Scatter plots for pairwise relationships between selected columns.
+- **Boxplot**: Visualizing the distribution of selected columns using boxplots.
+""")
+
 else:
     st.write("Please upload an Excel or CSV file to start the analysis.")
+    
