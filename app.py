@@ -1,13 +1,39 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import seaborn as sns
-import matplotlib as mp
+
 def app():
   """ Exploratory Data Analysis App """
 
-  # File upload section
-  uploaded_file = st.file_uploader("Choose a CSV or Excel file", type=["csv", "xlsx"])
+  # Define app title and description (displayed on top left)
+  st.set_page_config(
+      page_title="Exploratory Data Analysis (EDA) App",
+      page_icon="",  # Optional icon (displayed on browser tab)
+      layout="wide"  # Adjust layout for wider content area
+  )
+
+  # App description text
+  app_description = """
+      **Exploratory Data Analysis (EDA)** is a crucial step in data science that involves understanding the structure, characteristics, and relationships within your data. It helps identify patterns, trends, and potential issues before diving into model building.
+
+      **Use cases:**
+
+      - Feature engineering
+      - Hypothesis generation
+      - Data cleaning and pre-processing
+      - Model selection
+
+      **How to use this app:**
+
+      1. Upload your CSV or Excel file.
+      2. Explore the data overview and description.
+      3. Select a column to analyze its distribution or value counts.
+      4. Use the displayed visualizations to gain insights into your data.
+  """
+  st.sidebar.markdown(app_description, unsafe_allow_html=True)  # Display in sidebar
+
+  # File upload section (moved to sidebar for better layout)
+  uploaded_file = st.sidebar.file_uploader("Choose a CSV or Excel file", type=["csv", "xlsx"])
 
   if uploaded_file is not None:
     # Read the uploaded file
@@ -15,6 +41,9 @@ def app():
       df = pd.read_excel(uploaded_file)
     else:
       df = pd.read_csv(uploaded_file)
+
+    # App heading with large font size
+    st.markdown("<h1 style='text-align: center; font-size: 40px;'>Exploratory Data Analysis</h1>", unsafe_allow_html=True)
 
     # Data overview section
     st.write("### Data Overview")
@@ -40,6 +69,21 @@ def app():
       st.write("### Categorical Data Analysis")
       st.subheader("Value Counts")
       st.write(df[selected_column].value_counts())  # Count of each value
+
+    # Content table for analysis capabilities (displayed in sidebar)
+    analysis_table = """
+    | Analysis | Description |
+    |---|---|
+    | Data Overview | View the first few rows and data shape. |
+    | Data Description | Get summary statistics of the data. |
+    | Distribution Analysis (Numerical) | Visualize the distribution of numerical data using histograms. |
+    | Outlier Detection (Numerical) | Identify potential outliers using boxplots. |
+    | Value Counts (Categorical) | Explore the frequency of each category in categorical data. |
+    """
+    st.sidebar.markdown(analysis_table, unsafe_allow_html=True)
+
+  # Add signature in sidebar
+  st.sidebar.markdown("App by Kirthan Iyanagar", unsafe_allow_html=True)
 
 if __name__ == "__main__":
   app()
