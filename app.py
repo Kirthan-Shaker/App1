@@ -4,7 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Function to load data
-@st.cache
+@st.cache_data
 def load_data(file):
     if file.name.endswith('.csv'):
         return pd.read_csv(file)
