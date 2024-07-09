@@ -13,7 +13,7 @@ def app():
   )
 
   # App description text
-  app_description = """
+  app_description = """About this app
       **Exploratory Data Analysis (EDA)** is a crucial step in data science that involves understanding the structure, characteristics, and relationships within your data. It helps identify patterns, trends, and potential issues before diving into model building.
 
       **Use cases:**
