@@ -80,6 +80,7 @@ st.sidebar.markdown("""
 - **Pairplot**: Scatter plots for pairwise relationships between selected columns.
 - **Boxplot**: Visualizing the distribution of selected columns using boxplots.
 """)
+
 else:
     st.write("Please upload an Excel or CSV file to start the analysis.")
     
