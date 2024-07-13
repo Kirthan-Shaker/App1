@@ -16,6 +16,7 @@ def app():
 
   # About Us section (displayed on top left)
   about_us_text = """
+      ****Welcome to the EDA App****
       **About Us**
 
       This Exploratory Data Analysis (EDA) app is a tool designed to help you gain insights from your CSV or Excel data. 
